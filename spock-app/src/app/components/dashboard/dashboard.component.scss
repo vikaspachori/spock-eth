@@ -1,0 +1,98 @@
+.card {
+  background-color: black !important;
+  box-shadow: 0px 0px 3px 4px whitesmoke;
+}
+.gradient0 {
+  background: rgb(195, 220, 249);
+  background: linear-gradient(
+    90deg,
+    rgba(195, 220, 249, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
+.gradient1 {
+  background: rgb(176, 245, 185);
+  background: linear-gradient(
+    27deg,
+    rgba(176, 245, 185, 1) 0%,
+    rgba(214, 237, 217, 1) 100%
+  );
+}
+.gradient2 {
+  background: rgb(241, 229, 180);
+  background: linear-gradient(
+    27deg,
+    rgba(241, 229, 180, 1) 0%,
+    rgba(214, 237, 217, 1) 100%
+  );
+}
+
+.card-text {
+  color: black;
+  font-weight: 800;
+}
+.red {
+  color: red !important;
+
+  margin-top: 21px;
+}
+.blue {
+    color: #30d430 !important;
+
+  margin-top: 21px;
+}
+.status-text {
+  margin-left: 20px;
+}
+.widget-footer {
+  display: flex;
+  height: 50px;
+  margin-top: 15px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.sports-logo {
+  //   flex: 2;
+  margin-left: 16px;
+  /* text-align: center; */
+  background: white;
+  height: 48px;
+  border-radius: 10px;
+}
+.margin-status {
+  //   flex: 5;
+  margin-left: 10px;
+}
+.icnmention {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.cricket {
+  background: url("../../../assets/cricket.png") no-repeat;
+  height: 48px;
+  width: 48px;
+}
+.football {
+  background: url("../../../assets/football.png") no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.basketball {
+  background: url("../../../assets/basketball.png") no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.status-marker-red {
+  background: url("../../../assets/downarrow.png") no-repeat;
+  height: 24px;
+  background-size: contain;
+}
+.status-marker-blue {
+  background: url("../../../assets/uparrow.png") no-repeat;
+  height: 48px;
+  height: 24px;
+  background-size: contain;
+}

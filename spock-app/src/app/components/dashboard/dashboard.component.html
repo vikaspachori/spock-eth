@@ -1,0 +1,55 @@
+<div class="dashboard-containter">
+  <div class="row first-row">
+    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+      <div class="heading">Your Portfolio</div>
+      <div class="card">
+        <div class="card-body">
+          <p>this is something</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12"></div>
+    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+      <div class="heading">Your Assets</div>
+      <div class="row">
+        <div
+          class="col-md-4 col-lg-4 col-sm-12 col-xs-12"
+          *ngFor="let item of playerassets; let i = index"
+        >
+          <div [class]="getClassWithGradient(i)">
+            <div class="count card-text p-3">Players: {{ item.count }}</div>
+            <div class="worth card-text" style="margin-left: 12px">
+              {{ item.money }}
+            </div>
+            <div class="widget-footer">
+              <div class="sports-logo">
+                <div [class]="item.sports"></div>
+              </div>
+              <div class="margin-status card-text">
+                <div [class]="getMarginClass(item.status)">
+                  <div [class]="'status-marker-' + getMarginClass(item.status)">
+                    <span class="status-text">
+                      {{ item.status }} %
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row second-row">
+    <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+      <div class="heading">Trending Players</div>
+    </div>
+    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+      <div class="adv"></div>
+    </div>
+  </div>
+</div>
+<div class="icnmention">
+  <a target="_blank" href="https://icons8.com/icon/Ed5WzXg37ZDw/up"></a> Icons
+  by <a target="_blank" href="https://icons8.com">Icons8</a>
+</div>
