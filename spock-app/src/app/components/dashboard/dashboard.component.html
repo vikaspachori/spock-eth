@@ -2,10 +2,12 @@
   <div class="row first-row">
     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
       <div class="heading">Your Portfolio</div>
-      <div class="card">
-        <div class="card-body">
-          <p>this is something</p>
-        </div>
+      <div class="chart-container">
+        <highcharts-chart
+          [Highcharts]="Highcharts"
+          [options]="chartOptions"
+          
+        ></highcharts-chart>
       </div>
     </div>
     <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12"></div>
@@ -17,7 +19,12 @@
           *ngFor="let item of playerassets; let i = index"
         >
           <div [class]="getClassWithGradient(i)">
-            <div class="count card-text p-3" style="padding-bottom: 0px !important;">Players: {{ item.count }}</div>
+            <div
+              class="count card-text p-3"
+              style="padding-bottom: 0px !important"
+            >
+              Players: {{ item.count }}
+            </div>
             <div class="worth card-text" style="margin-left: 12px">
               {{ item.money }}
             </div>
