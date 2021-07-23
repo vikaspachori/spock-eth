@@ -17,7 +17,7 @@
           *ngFor="let item of playerassets; let i = index"
         >
           <div [class]="getClassWithGradient(i)">
-            <div class="count card-text p-3">Players: {{ item.count }}</div>
+            <div class="count card-text p-3" style="padding-bottom: 0px !important;">Players: {{ item.count }}</div>
             <div class="worth card-text" style="margin-left: 12px">
               {{ item.money }}
             </div>
@@ -28,9 +28,7 @@
               <div class="margin-status card-text">
                 <div [class]="getMarginClass(item.status)">
                   <div [class]="'status-marker-' + getMarginClass(item.status)">
-                    <span class="status-text">
-                      {{ item.status }} %
-                    </span>
+                    <span class="status-text"> {{ item.status }} % </span>
                   </div>
                 </div>
               </div>
@@ -43,8 +41,33 @@
   <div class="row second-row">
     <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
       <div class="heading">Trending Players</div>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <td class="theader">Name</td>
+            <td class="theader">Price</td>
+            <td class="theader">Change</td>
+            <td class="theader">Market Cap</td>
+            <td class="theader">Watch</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of trendingPlayers">
+            <td class="tcell">{{ item.name }}</td>
+            <td class="tcell">{{ item.price }}</td>
+            <td class="tcell">
+              <div [innerHTML]="getChangeText(item.change)"></div>
+            </td>
+            <td class="tcell">{{ item.marketcap }}</td>
+            <td class="tcell">
+              <div [class]="getStarClass(item.isFavruit)"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+      <div class="heading"></div>
       <div class="adv"></div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 .card {
   background-color: black !important;
-  box-shadow: 0px 0px 3px 4px whitesmoke;
+  box-shadow: 0px 0px 3px 2px whitesmoke;
 }
 .gradient0 {
   background: rgb(195, 220, 249);
@@ -37,7 +37,7 @@
   margin-top: 21px;
 }
 .blue {
-    color: #30d430 !important;
+  color: #30d430 !important;
 
   margin-top: 21px;
 }
@@ -47,11 +47,13 @@
 .widget-footer {
   display: flex;
   height: 50px;
-  margin-top: 15px;
+  margin-top: 33px;
   padding: 5px;
   margin-bottom: 10px;
 }
-
+.green {
+  color: green;
+}
 .sports-logo {
   //   flex: 2;
   margin-left: 16px;
@@ -95,4 +97,42 @@
   height: 48px;
   height: 24px;
   background-size: contain;
+}
+
+.filledstar {
+  background: url("../../../assets/filledstar.png") no-repeat;
+  height: 24px;
+  width: 24px;
+  background-size: contain;
+}
+
+.star {
+  background: url("../../../assets/star.png") no-repeat;
+  height: 24px;
+  width: 24px;
+  background-size: contain;
+}
+
+.adv {
+  background: url("../../../assets/advirt.jpg") no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.heading {
+  font-size: x-large;
+  font-weight: 600;
+  padding: 35px;
+  text-shadow: 0 0 3px whitesmoke;
+}
+
+td.theader {
+  filter: brightness(0.5);
+  border: none !important;
+  text-shadow: 0 0 5px whitesmoke;
+}
+td.tcell {
+  background: none;
+  border: none;
+  font-weight: 650;
 }
