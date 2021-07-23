@@ -15,10 +15,29 @@ export class DashboardComponent implements OnInit {
   trendingPlayers: Array<TrendinPlayers>;
   constructor(private daashbaordservice: DashboardService) { }
   chartOptions: Highcharts.Options = {
+
     chart: {
       className: "chart-container",
+      backgroundColor: "#ff5757",
       height: 150,
       width: 500,
+    
+
+    },
+
+    yAxis: {
+      labels: {
+        enabled: false
+      },
+      visible:false,
+      
+    },
+    xAxis: {
+      visible:false,
+      gridLineWidth:0,
+      labels: {
+        enabled: false
+      }
     },
     title: {
       text: ""
@@ -39,7 +58,8 @@ export class DashboardComponent implements OnInit {
     this.chartOptions.series.push({
       type: "line",
       data: t,
-      showInLegend: false
+      showInLegend: false,
+      color: 'whitesmoke'
     })
   }
   getMarginClass(number): string {
