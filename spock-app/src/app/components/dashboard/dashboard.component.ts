@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AssetPlayer, TrendinPlayers } from 'src/app/models/assetplayer.model';
 import { DashboardService } from 'src/app/services/dashboard.service';
-import * as Highcharts from "highcharts";
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -10,57 +9,15 @@ import * as Highcharts from "highcharts";
 })
 export class DashboardComponent implements OnInit {
 
-  Highcharts: typeof Highcharts = Highcharts;
   playerassets: Array<AssetPlayer>
   trendingPlayers: Array<TrendinPlayers>;
+  t = []
   constructor(private daashbaordservice: DashboardService) { }
-  chartOptions: Highcharts.Options = {
-
-    chart: {
-      className: "chart-container",
-      backgroundColor: "#ff5757",
-      height: 150,
-      width: 500,
-    
-
-    },
-
-    yAxis: {
-      labels: {
-        enabled: false
-      },
-      visible:false,
-      
-    },
-    xAxis: {
-      visible:false,
-      gridLineWidth:0,
-      labels: {
-        enabled: false
-      }
-    },
-    title: {
-      text: ""
-    },
-    series: [
-
-    ]
-  };
+ 
   ngOnInit(): void {
     this.playerassets = this.daashbaordservice.getAsset();
     this.trendingPlayers = this.daashbaordservice.getTrendingPlayers();
-    const t = []
-    for (let index = 0; index < 100; index++) {
-
-      const rndInt = Math.floor(Math.random() * 20) + 1
-      t.push(rndInt)
-    }
-    this.chartOptions.series.push({
-      type: "line",
-      data: t,
-      showInLegend: false,
-      color: 'whitesmoke'
-    })
+   
   }
   getMarginClass(number): string {
     return number < 0 ? "red" : "blue"
