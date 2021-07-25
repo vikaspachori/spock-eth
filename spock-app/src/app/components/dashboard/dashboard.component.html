@@ -4,8 +4,24 @@
     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
       <div class="heading">Your Portfolio</div>
       <div class="chart-container">
-        <div class="chat-text">sometexts</div>
-        <app-line-chart></app-line-chart>
+        <div class="chart-text p-3">
+          <div class="chart-header">Portfolio balance</div>
+          <div class="chart-numbers">
+            <div class="balance">$17,643</div>
+            <div [class]="getMarginClass(11)" style="margin: 0;">
+              <div [class]="'status-marker-' + getMarginClass(11)" style="height: 19px;">
+                <span class="status-text"> {{ 2 }} % </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <app-line-chart
+          [height]="150"
+          [hidex]="true"
+          [hideY]="true"
+          [backgroundcolor]="'#fd7070'"
+        ></app-line-chart>
+        <!-- <app-line-chart></app-line-chart> -->
       </div>
     </div>
     <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12"></div>

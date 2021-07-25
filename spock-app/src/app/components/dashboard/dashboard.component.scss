@@ -143,3 +143,16 @@ td.tcell {
   padding: 1rem;
   color: #548bf1;
 }
+
+.chart-numbers {
+  display: flex;
+  margin-left: 1rem;
+  font-size: 12px;
+}
+.chart-text {
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  font-size: 14px;
+  text-shadow: 0 0 whitesmoke;
+}

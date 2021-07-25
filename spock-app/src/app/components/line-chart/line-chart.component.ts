@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as echarts from 'echarts';
 @Component({
   selector: 'app-line-chart',
@@ -7,6 +7,19 @@ import * as echarts from 'echarts';
 })
 export class LineChartComponent implements OnInit {
 
+  @Input()
+  height: any;
+  @Input()
+  hidex: boolean;
+  @Input()
+  hideY: boolean
+
+  @Input()
+  lineColor: string;
+
+  @Input()
+
+  backgroundcolor: string
   constructor() { }
   chartDom: any;
   option: any;
@@ -15,16 +28,32 @@ export class LineChartComponent implements OnInit {
   now = new Date(1997, 9, 3)
   value = Math.random() * 1000;
   ngOnInit(): void {
+    if (this.height) {
+      document.getElementById("main").style.height = this.height + "px";
+    }
+    else{
+      this.height = 400
+    }
     this.chartDom = document.getElementById('main');
     this.myChart = echarts.init(this.chartDom);
 
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < 50; i++) {
       this.data.push(this.randomData());
     }
+    this.data[this.data.length - 1].value[1] = 1000;
+    // debugger
     this.option = {
       title: {
         text: ''
       },
+      grid: {
+        left: 10,
+        top: 0,
+        right: 10,
+        bottom: 10
+      },
+      backgroundColor: this.backgroundcolor,
+
       tooltip: {
         trigger: 'axis',
         formatter: function (params) {
@@ -38,13 +67,14 @@ export class LineChartComponent implements OnInit {
       },
       xAxis: {
         type: 'time',
+        show: !this.hidex,
         splitLine: {
           show: false
         }
       },
       yAxis: {
         type: 'value',
-        boundaryGap: [0, '100%'],
+        show: !this.hideY,
         splitLine: {
           show: false
         }
@@ -54,7 +84,8 @@ export class LineChartComponent implements OnInit {
         type: 'line',
         showSymbol: false,
         hoverAnimation: false,
-        data: this.data
+        data: this.data,
+        lineStyle: { color: this.lineColor }
       }]
     };
 
@@ -62,28 +93,28 @@ export class LineChartComponent implements OnInit {
     this.myChart.setOption(this.option);
     const self = this;
 
-setInterval(function () {
+    // setInterval(function () {
 
-  for (var i = 0; i < 5; i++) {
-    self.data.shift();
-    self.data.push(self.randomData());
-  }
+    //   for (var i = 0; i < 5; i++) {
+    //     self.data.shift();
+    //     self.data.push(self.randomData());
+    //   }
 
-  self.myChart.setOption({
-      series: [{
-          data: self.data
-      }]
-  });
-}, 1000);
+    //   self.myChart.setOption({
+    //     series: [{
+    //       data: self.data
+    //     }]
+    //   });
+    // }, 1000);
 
   }
   randomData() {
 
     var date = new Date(this.now)
-     date.setDate(this.now.getDate() + 1);
-     this.now = date;
+    date.setDate(this.now.getDate() + 1);
+    this.now = date;
     console.log(this.now)
-    this.value = this.value + Math.random() * 21 - 10;
+    this.value = Math.floor(Math.random() * 100);
     return {
       name: this.now.toString(),
       value: [
