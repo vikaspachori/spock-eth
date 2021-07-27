@@ -1,10 +1,62 @@
 #linechart {
-  background-color: whitesmoke;
+  background-color: white;
+  border-radius: 15px;
+  margin-top: 15px;
 }
 .nav-link {
   color: white;
   font-weight: 700;
 }
-.nav-item{
-    cursor: pointer;
+.nav-item {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  border-bottom: 1px solid grey;
+}
+.nav-tabs {
+  border: none;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+.selected {
+  background: black;
+  color: whitesmoke;
+  border: none;
+  border-bottom: 2px solid #6060de;
+}
+.playerName {
+  margin-left: 2rem;
+  font-weight: 600;
+  float: 8;
+  font-size: 24px;
+  text-shadow: 0 0 2px white;
+  margin-top: 1.5rem;
+}
+.current-rate {
+  font-size: 32px;
+  font-weight: 700;
+}
+.player-stock-infomation {
+  display: flex;
+}
+.deviation {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 19px;
+  color: #ec6e6e;
+  text-shadow: 0 0 2px #ec6e6e;
+}
+.player-icons{
+  display: flex;
+}
+.logo {
+  background-color: grey;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.row{
+  height: 100vh;
 }

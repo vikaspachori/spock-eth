@@ -1,24 +1,24 @@
-<div class="profile-details-container p-5">
+<div class="profile-details-container">
   <div class="row">
-    <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+    <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 p-5">
       <div class="player-icons">
         <div class="logo"></div>
         <div class="playerName">Viral Kohli</div>
       </div>
       <div class="player-stock-infomation">
-        <div class="current-rate">$200.25</div>
-        <div class="deviation">-11.19%</div>
+        <div class="current-rate p-3">$200.25</div>
+        <div class="deviation p-3">-11.19%</div>
       </div>
       <div class="tabbed-container">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <div class="nav-link ">Order book</div>
+            <div class="nav-link">Order book</div>
           </li>
           <li class="nav-item">
             <div class="nav-link">Statistics</div>
           </li>
-          <li class="nav-item">
-            <div class="nav-link active">Chart</div>
+          <li class="nav-item selected">
+            <div class="nav-link">Chart</div>
           </li>
           <li class="nav-item">
             <div class="nav-link">Profile</div>
@@ -27,13 +27,16 @@
             <div class="nav-link">Financial</div>
           </li>
         </ul>
-        <div id="linechart" >
-            <app-line-chart></app-line-chart>
+        <div id="linechart">
+          <app-line-chart></app-line-chart>
         </div>
       </div>
     </div>
-    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-        <app-stock-data></app-stock-data>
+    <div
+      class="col-md-4 col-lg-4 col-sm-12 col-xs-12 p-5"
+      style="backdrop-filter: contrast(0.8)"
+    >
+      <app-stock-data [data]="stockData"></app-stock-data>
     </div>
   </div>
 </div>

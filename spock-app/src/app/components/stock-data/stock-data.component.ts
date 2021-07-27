@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PlayerStockData } from 'src/app/models/assetplayer.model';
 
 @Component({
   selector: 'app-stock-data',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockDataComponent implements OnInit {
 
+  @Input()
+  data: PlayerStockData
   constructor() { }
 
   ngOnInit(): void {

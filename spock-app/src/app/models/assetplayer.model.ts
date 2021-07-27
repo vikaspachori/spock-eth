@@ -12,3 +12,12 @@ export interface TrendinPlayers {
     marketcap: String;
     isFavruit: boolean
 }
+
+export interface PlayerStockData {
+    high: string;
+    low: string;
+    market_cap: string;
+    vol: string;
+    totalSupply: string;
+    popularity: string
+}

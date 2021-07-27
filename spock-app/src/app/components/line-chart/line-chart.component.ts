@@ -18,7 +18,8 @@ export class LineChartComponent implements OnInit {
   lineColor: string;
 
   @Input()
-
+  bottom: number
+  @Input()
   backgroundcolor: string
   constructor() { }
   chartDom: any;
@@ -31,8 +32,11 @@ export class LineChartComponent implements OnInit {
     if (this.height) {
       document.getElementById("main").style.height = this.height + "px";
     }
-    else{
-      this.height = 400
+    else {
+      this.height = 600
+    }
+    if (!this.bottom) {
+      this.bottom = 30
     }
     this.chartDom = document.getElementById('main');
     this.myChart = echarts.init(this.chartDom);
@@ -47,10 +51,10 @@ export class LineChartComponent implements OnInit {
         text: ''
       },
       grid: {
-        left: 10,
+        left: 0,
         top: 0,
         right: 10,
-        bottom: 10
+        bottom: this.bottom
       },
       backgroundColor: this.backgroundcolor,
 

@@ -1,1 +1,103 @@
-<p>stock-data works!</p>
+<div class="stock-data-container">
+  <div class="stock-title">Stock Data</div>
+  <div class="stockdata p-3">
+    <table>
+      <tr>
+        <td>High</td>
+        <td>
+          <span> {{ data?.high }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Low</td>
+        <td>
+          <span>{{ data?.low }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Market Cap</td>
+        <td>
+          <span>{{ data?.market_cap }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Volume(1D)</td>
+        <td>
+          <span>{{ data?.vol }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Total Supply</td>
+        <td>
+          <span>{{ data?.totalSupply }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Popularity</td>
+        <td>
+          <span>{{ data?.popularity }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div class="marginwidget"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="buy-sell">
+    <div class="btn-container">
+      <div class="buy">BUY</div>
+      <div class="sell blb">SELL</div>
+    </div>
+    <div class="buy-options">
+      <div>
+        <div class="stock-details p-3">
+          <table>
+            <tr>
+              <td></td>
+              <td>
+                <div class="dropdown">
+                  <select>
+                    <option selected>LIMIT</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Stocks</td>
+              <td><div class="stockdata">0</div></td>
+            </tr>
+
+            <tr>
+              <td>Market Price</td>
+              <td></td>
+            </tr>
+
+            <tr class="last-row">
+              <td>Platform Fee</td>
+              <td></td>
+            </tr>
+
+            <tr class="total">
+              <td>Total</td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+        <div class="footer-container">
+          <button class="btn">Buy Shares</button>
+        </div>
+        <div
+          class="p-3"
+          style="text-align: center; color: grey; cursor: pointer"
+        >
+          Treding Options
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
