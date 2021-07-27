@@ -1,3 +1,16 @@
 <div class="navigation">
-  <p>navigation works!</p>
+  <div class="userinfo">
+    <div class="userlogo"></div>
+    <div class="username">John Doe</div>
+  </div>
+  <div class="nav-container">
+    <ul>
+      <li (click)="itemClick($event, '/')" id="home">HOME</li>
+      <li (click)="itemClick($event, 'profile')" id="profile">PROFILE</li>
+      <li>PORTFOLIO</li>
+      <li>TRADING REPORTS</li>
+      <li>VERIFY KYC</li>
+      <li>LOGOUT</li>
+    </ul>
+  </div>
 </div>

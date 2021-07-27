@@ -5,3 +5,41 @@
   /* backdrop-filter: contrast(0.5); */
   backdrop-filter: contrast(0.8);
 }
+.userlogo {
+  height: 6rem;
+  text-align: center;
+  width: 6rem;
+  background-image: url(http://borrower-superfluid.s3-website.ap-south-1.amazonaws.com/assets/images/profile/pic1.jpg);
+  margin-left: 2rem;
+  border-radius: 50%;
+}
+
+.userinfo {
+  height: 11rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+.username {
+  text-align: center;
+  font-weight: 700;
+  /* margin: 1rem; */
+  margin-top: 8px;
+}
+
+.nav-selected {
+  border-left: 6px solid #6060de;
+  cursor: pointer;
+}
+
+li {
+  padding: 1rem;
+  font-weight: 400;
+  /* padding-bottom: 2rem; */
+  text-shadow: 0 0 0px white;
+  cursor: pointer;
+}
+ul {
+  padding: none;
+}
