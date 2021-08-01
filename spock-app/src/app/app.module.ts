@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { HighchartsChartModule } from 'highcharts-angular';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 import { StockDataComponent } from './components/stock-data/stock-data.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
@@ -21,8 +20,7 @@ import { LineChartComponent } from './components/line-chart/line-chart.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HighchartsChartModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
