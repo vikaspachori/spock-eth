@@ -27,7 +27,7 @@ export class WalletService {
     };
 
     this.web3Modal = new Web3Modal({
-      network: "mainnet", // optional
+      network: "testnet", // optional
       cacheProvider: true, // optional
       providerOptions, // required
       theme: {
