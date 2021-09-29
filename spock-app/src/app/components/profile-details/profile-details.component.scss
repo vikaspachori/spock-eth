@@ -55,7 +55,9 @@
   background-color: grey;
   height: 100px;
   width: 100px;
+  background: url("https://cqt-swagger.s3.ap-south-1.amazonaws.com/nfts/art15.png");
   border-radius: 50%;
+  background-size: contain
 }
 .row{
   height: 100vh;
