@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   constructor(private daashbaordservice: DashboardService, private walletService: WalletService) { }
 
   async ngOnInit() {
-    const data = await this.walletService.openMetamask();
+    const data = await this.walletService.connectAccount();
     debugger
     this.playerassets = this.daashbaordservice.getAsset();
     this.trendingPlayers = this.daashbaordservice.getTrendingPlayers();
