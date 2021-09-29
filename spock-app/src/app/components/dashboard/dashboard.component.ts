@@ -16,8 +16,12 @@ export class DashboardComponent implements OnInit {
   constructor(private daashbaordservice: DashboardService, private walletService: WalletService) { }
 
   async ngOnInit() {
-    const data = await this.walletService.connectAccount();
-    debugger
+    const walletdata = localStorage.getItem("walletid");
+    if (walletdata) {
+      const elm = document.getElementById("walletbtn") as any;
+      elm.value = walletdata;
+      elm.disabled = true
+    }
     this.playerassets = this.daashbaordservice.getAsset();
     this.trendingPlayers = this.daashbaordservice.getTrendingPlayers();
 
@@ -34,5 +38,14 @@ export class DashboardComponent implements OnInit {
   }
   getClassWithGradient(i): string {
     return "card gradient" + i
+  }
+
+  async connectWallet(e) {
+    const data = await this.walletService.connectAccount();
+    if (data) {
+      localStorage.setItem("walletid", data)
+      e.target.value = data;
+      e.target.disabled = true;
+    }
   }
 }

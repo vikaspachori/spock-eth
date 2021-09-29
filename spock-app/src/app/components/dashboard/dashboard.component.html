@@ -1,5 +1,16 @@
 <div class="dashboard-containter">
-  <div class="header">Hello John, Welcome Back</div>
+  <div class="header">
+    <div>Hello John, Welcome Back</div>
+    <div>
+      <input
+        type="button"
+        class="btn btn-primary"
+        id="walletbtn"
+        (click)="connectWallet($event)"
+        value="Connect Wallet"
+      />
+    </div>
+  </div>
   <div class="row first-row">
     <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
       <div class="heading">Your Portfolio</div>
@@ -8,8 +19,11 @@
           <div class="chart-header">Portfolio balance</div>
           <div class="chart-numbers">
             <div class="balance">$17,643</div>
-            <div [class]="getMarginClass(11)" style="margin: 0;">
-              <div [class]="'status-marker-' + getMarginClass(11)" style="height: 19px;">
+            <div [class]="getMarginClass(11)" style="margin: 0">
+              <div
+                [class]="'status-marker-' + getMarginClass(11)"
+                style="height: 19px"
+              >
                 <span class="status-text"> {{ 2 }} % </span>
               </div>
             </div>

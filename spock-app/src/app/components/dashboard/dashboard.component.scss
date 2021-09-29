@@ -141,6 +141,8 @@ td.tcell {
 .header {
   margin-left: 225px;
   padding: 1rem;
+  display: flex;
+  justify-content: space-between;
   color: #548bf1;
 }
 
@@ -156,6 +158,6 @@ td.tcell {
   font-size: 14px;
   text-shadow: 0 0 whitesmoke;
 }
-.chart-container{
+.chart-container {
   margin-left: 3rem;
 }
