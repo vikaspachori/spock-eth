@@ -11,7 +11,7 @@ export class NavigationComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    if (window.location.href.includes("profile")) {
+    if (window.location.href.includes("players")) {
       document.getElementById("profile").classList.add("nav-selected");
     }
     else {

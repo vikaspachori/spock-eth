@@ -8,6 +8,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 import { StockDataComponent } from './components/stock-data/stock-data.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { PlayerListComponent } from './components/player-list/player-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LineChartComponent } from './components/line-chart/line-chart.component
     NavigationComponent,
     ProfileDetailsComponent,
     StockDataComponent,
-    LineChartComponent
+    LineChartComponent,
+    PlayerListComponent
   ],
   imports: [
     BrowserModule,
