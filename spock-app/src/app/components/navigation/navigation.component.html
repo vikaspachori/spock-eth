@@ -7,11 +7,11 @@
     <ul>
       <li (click)="itemClick($event, '/')" id="home">HOME</li>
       <li (click)="itemClick($event, 'players')" id="players">PLAYERS</li>
-      <li>PFTFOLIO</li>
-      <li>CLAIM YOUR NFT</li>
+      <li>PORTFOLIO</li>
+      <li (click)="itemClick($event, 'nftclaim')" >CLAIM YOUR NFT</li>
       <li>TRADING REPORTS</li>
       <li>VERIFY KYC</li>
-      <li>LOGOUT</li>
+      <li (click)="logout()">LOGOUT</li>
     </ul>
   </div>
 </div>

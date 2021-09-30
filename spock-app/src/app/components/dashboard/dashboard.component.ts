@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { AssetPlayer, TrendinPlayers } from 'src/app/models/assetplayer.model';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { WalletService } from 'src/app/services/wallet.service';
@@ -12,8 +13,9 @@ export class DashboardComponent implements OnInit {
 
   playerassets: Array<AssetPlayer>
   trendingPlayers: Array<TrendinPlayers>;
+  isWalletConnected = false;
   t = []
-  constructor(private daashbaordservice: DashboardService, private walletService: WalletService) { }
+  constructor(private daashbaordservice: DashboardService, private walletService: WalletService, private router: Router) { }
 
   async ngOnInit() {
     const walletdata = localStorage.getItem("walletid");
@@ -21,6 +23,7 @@ export class DashboardComponent implements OnInit {
       const elm = document.getElementById("walletbtn") as any;
       elm.value = walletdata;
       elm.disabled = true
+      this.isWalletConnected = true;
     }
     this.playerassets = this.daashbaordservice.getAsset();
     this.trendingPlayers = this.daashbaordservice.getTrendingPlayers();
@@ -40,12 +43,16 @@ export class DashboardComponent implements OnInit {
     return "card gradient" + i
   }
 
+  redirecToPlayerProfile(data: TrendinPlayers): void {
+    this.router.navigateByUrl(`player/${data.id}`);
+  }
   async connectWallet(e) {
     const data = await this.walletService.connectAccount();
     if (data) {
       localStorage.setItem("walletid", data)
       e.target.value = data;
       e.target.disabled = true;
+      this.isWalletConnected = true;
     }
   }
 }

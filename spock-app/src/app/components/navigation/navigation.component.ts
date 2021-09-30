@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { WalletService } from 'src/app/services/wallet.service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private wallet: WalletService) { }
 
   ngOnInit(): void {
     if (window.location.href.includes("players")) {
@@ -27,5 +28,11 @@ export class NavigationComponent implements OnInit {
     }
     elm.classList.add("nav-selected")
     this.router.navigateByUrl(url)
+  }
+
+  logout() {
+    const data = this.wallet.web3Modal.clearCachedProvider();
+    localStorage.clear()
+    window.location.reload();
   }
 }

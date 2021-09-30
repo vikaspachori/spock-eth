@@ -35,6 +35,7 @@ export class DashboardService {
   getTrendingPlayers(): Array<TrendinPlayers> {
     return [
       {
+        id: "1",
         name: "Virat Kohli",
         price: "$2.42",
         change: 12,
@@ -42,6 +43,7 @@ export class DashboardService {
         isFavruit: true
       },
       {
+        id: "2",
         name: "Rafael Nadal",
         price: "$7.42",
         change: 11,
@@ -49,6 +51,7 @@ export class DashboardService {
         isFavruit: false
       },
       {
+        id: "3",
         name: "Lebron James",
         price: "$0.0814",
         change: 7,
@@ -56,6 +59,7 @@ export class DashboardService {
         isFavruit: false
       },
       {
+        id: "4",
         name: "Lionel Messi",
         price: "$30.68",
         change: 6.80,

@@ -10,7 +10,8 @@ export interface TrendinPlayers {
     price: string;
     change: Number;
     marketcap: String;
-    isFavruit: boolean
+    isFavruit: boolean;
+    id: string;
 }
 
 export interface PlayerStockData {

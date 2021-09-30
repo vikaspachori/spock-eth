@@ -1,6 +1,6 @@
 <div class="dashboard-containter">
   <div class="header">
-    <div>Hello John, Welcome Back</div>
+    <div><span *ngIf="isWalletConnected">Hello, Welcome back!</span></div>
     <div>
       <input
         type="button"
@@ -87,7 +87,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of trendingPlayers">
+          <tr
+            *ngFor="let item of trendingPlayers"
+            style="cursor: pointer"
+            (click)="redirecToPlayerProfile(item)"
+          >
             <td class="tcell">{{ item.name }}</td>
             <td class="tcell">{{ item.price }}</td>
             <td class="tcell">
