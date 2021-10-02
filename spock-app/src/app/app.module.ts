@@ -10,6 +10,8 @@ import { StockDataComponent } from './components/stock-data/stock-data.component
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { PlayerListComponent } from './components/player-list/player-list.component';
 import { NftClaimComponent } from './components/nft-claim/nft-claim.component';
+import { LoginComponent } from './components/login/login.component';
+import { MainContainerComponent } from './components/main-container/main-container.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NftClaimComponent } from './components/nft-claim/nft-claim.component';
     StockDataComponent,
     LineChartComponent,
     PlayerListComponent,
-    NftClaimComponent
+    NftClaimComponent,
+    LoginComponent,
+    MainContainerComponent
   ],
   imports: [
     BrowserModule,
