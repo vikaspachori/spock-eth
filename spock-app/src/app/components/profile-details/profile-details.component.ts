@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerStockData } from 'src/app/models/assetplayer.model';
+import { MatchContractsService } from 'src/app/services/match-contracts.service';
 
 @Component({
   selector: 'app-profile-details',
@@ -8,9 +9,10 @@ import { PlayerStockData } from 'src/app/models/assetplayer.model';
 })
 export class ProfileDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private contractService: MatchContractsService) { }
   stockData: PlayerStockData;
-  ngOnInit(): void {
+  async ngOnInit() {
+    const data = await this.contractService.getContractInstance();
     this.stockData = {
       high: "$ 20.5",
       low: "$10.5",

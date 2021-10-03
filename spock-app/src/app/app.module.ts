@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainContainerComponent } from './components/main-container/main-container.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MatchCardComponent } from './components/match-card/match-card.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { MatchCardComponent } from './components/match-card/match-card.component
   imports: [
     BrowserModule,
     SlickCarouselModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
