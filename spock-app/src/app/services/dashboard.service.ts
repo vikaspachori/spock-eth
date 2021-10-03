@@ -65,6 +65,38 @@ export class DashboardService {
         change: 6.80,
         marketcap: "$399.8M",
         isFavruit: true
+      },
+      {
+        id: "2",
+        name: "Rafael Nadal",
+        price: "$7.42",
+        change: 11,
+        marketcap: "$152.8M",
+        isFavruit: false
+      },
+      {
+        id: "2",
+        name: "Rafael Nadal",
+        price: "$7.42",
+        change: 11,
+        marketcap: "$152.8M",
+        isFavruit: false
+      },
+      {
+        id: "2",
+        name: "Rafael Nadal",
+        price: "$7.42",
+        change: 11,
+        marketcap: "$152.8M",
+        isFavruit: false
+      },
+      {
+        id: "2",
+        name: "Rafael Nadal",
+        price: "$7.42",
+        change: 11,
+        marketcap: "$152.8M",
+        isFavruit: false
       }
     ]
   }

@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { AssetPlayer, TrendinPlayers } from 'src/app/models/assetplayer.model';
+import { MatchData } from 'src/app/models/match.model';
 import { DashboardService } from 'src/app/services/dashboard.service';
+import { MatchDataService } from 'src/app/services/match-data.service';
 import { WalletService } from 'src/app/services/wallet.service';
 @Component({
   selector: 'app-dashboard',
@@ -15,16 +17,23 @@ export class DashboardComponent implements OnInit {
   trendingPlayers: Array<TrendinPlayers>;
   isWalletConnected = false;
   t = []
-  constructor(private daashbaordservice: DashboardService, private walletService: WalletService, private router: Router) { }
+  matchData: Array<MatchData>
+  constructor(private daashbaordservice: DashboardService, private walletService: WalletService, private router: Router, private matchService: MatchDataService) { }
 
+  slideConfig = {
+    centerMode: true,
+    centerPadding: '60px',
+    infinite: true,
+    arrows: true,
+    speed: 300,
+    variableWidth: true,
+    autoplay: true,
+    autoplaySpeed: 1000,
+  };
   async ngOnInit() {
-    const walletdata = localStorage.getItem("walletid");
-    if (walletdata) {
-      const elm = document.getElementById("walletbtn") as any;
-      elm.value = walletdata;
-      elm.disabled = true
-      this.isWalletConnected = true;
-    }
+
+    this.matchData = this.matchService.getMatchData()
+
     this.playerassets = this.daashbaordservice.getAsset();
     this.trendingPlayers = this.daashbaordservice.getTrendingPlayers();
 

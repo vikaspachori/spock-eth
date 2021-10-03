@@ -12,7 +12,8 @@ import { PlayerListComponent } from './components/player-list/player-list.compon
 import { NftClaimComponent } from './components/nft-claim/nft-claim.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainContainerComponent } from './components/main-container/main-container.component';
-
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { MatchCardComponent } from './components/match-card/match-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,10 +25,12 @@ import { MainContainerComponent } from './components/main-container/main-contain
     PlayerListComponent,
     NftClaimComponent,
     LoginComponent,
-    MainContainerComponent
+    MainContainerComponent,
+    MatchCardComponent
   ],
   imports: [
     BrowserModule,
+    SlickCarouselModule,
     AppRoutingModule
   ],
   providers: [],

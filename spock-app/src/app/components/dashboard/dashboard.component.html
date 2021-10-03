@@ -12,69 +12,27 @@
     </div>
   </div>
   <div class="row first-row">
-    <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
-      <div class="heading">Your Portfolio move it to portifolio</div>
-      <div class="chart-container">
-        <div class="chart-text p-3">
-          <div class="chart-header">Portfolio balance</div>
-          <div class="chart-numbers">
-            <div class="balance">$17,643</div>
-            <div [class]="getMarginClass(11)" style="margin: 0">
-              <div
-                [class]="'status-marker-' + getMarginClass(11)"
-                style="height: 19px"
-              >
-                <span class="status-text"> {{ 2 }} % </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <app-line-chart
-          [height]="165"
-          [hidex]="true"
-          [hideY]="true"
-          [backgroundcolor]="'#fd7070'"
-        ></app-line-chart>
-        <!-- <app-line-chart></app-line-chart> -->
-      </div>
-    </div>
-    <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12"></div>
-    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-      <div class="heading">Your Assets remove this</div>
-      <div class="row">
-        <div
-          class="col-md-4 col-lg-4 col-sm-12 col-xs-12"
-          *ngFor="let item of playerassets; let i = index"
+    <div class="col-md-1 col-lg-1"></div>
+    <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12">
+      <!-- <div class="heading">Matches</div> -->
+      <div style="height: 171px">
+        <ngx-slick-carousel
+          class="carousel"
+          #slickModal="slick-carousel"
+          [config]="slideConfig"
         >
-          <div [class]="getClassWithGradient(i)">
-            <div
-              class="count card-text p-3"
-              style="padding-bottom: 0px !important"
-            >
-              Players: {{ item.count }}
-            </div>
-            <div class="worth card-text" style="margin-left: 12px">
-              {{ item.money }}
-            </div>
-            <div class="widget-footer">
-              <div class="sports-logo">
-                <div [class]="item.sports"></div>
-              </div>
-              <div class="margin-status card-text">
-                <div [class]="getMarginClass(item.status)">
-                  <div [class]="'status-marker-' + getMarginClass(item.status)">
-                    <span class="status-text"> {{ item.status }} % </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div ngxSlickItem *ngFor="let slide of matchData" class="slide">
+            <app-match-card [matchData]="slide"></app-match-card>
           </div>
-        </div>
+        </ngx-slick-carousel>
       </div>
     </div>
+    <div class="col-md-1 col-lg-1"></div>
+
   </div>
   <div class="row second-row">
-    <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+    <div class="col-md-1 col-lg-1"></div>
+    <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12 gx-5">
       <div class="heading">Trending Players</div>
       <table class="table table-dark">
         <thead>
@@ -105,10 +63,7 @@
         </tbody>
       </table>
     </div>
-    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-      <div class="heading"></div>
-      <div class="adv"></div>
-    </div>
+  
   </div>
 </div>
 <div class="icnmention">
