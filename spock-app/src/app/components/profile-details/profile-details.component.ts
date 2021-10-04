@@ -15,6 +15,8 @@ export class ProfileDetailsComponent implements OnInit {
 
   @Input()
   playerPrice: String
+
+  selectedComponent: string;
   constructor(private contractService: MatchContractsService) { }
   stockData: PlayerStockData;
   async ngOnInit() {
@@ -27,6 +29,10 @@ export class ProfileDetailsComponent implements OnInit {
       totalSupply: "1 M",
       vol: "$5.0 M"
     }
+  }
+
+  onNavSelectChange(name) {
+    this.selectedComponent = name;
   }
 
 }

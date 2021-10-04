@@ -16,6 +16,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MatchCardComponent } from './components/match-card/match-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileContainerComponent } from './components/profile-container/profile-container.component';
+import { StatisticComponent } from './components/statistic/statistic.component';
+import { ProfileDescriptionComponent } from './components/profile-description/profile-description.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import { ProfileContainerComponent } from './components/profile-container/profil
     LoginComponent,
     MainContainerComponent,
     MatchCardComponent,
-    ProfileContainerComponent
+    ProfileContainerComponent,
+    StatisticComponent,
+    ProfileDescriptionComponent
   ],
   imports: [
     BrowserModule,

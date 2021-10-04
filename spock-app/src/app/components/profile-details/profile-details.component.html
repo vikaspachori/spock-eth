@@ -15,21 +15,28 @@
           <li class="nav-item">
             <div class="nav-link">Order book</div>
           </li>
-          <li class="nav-item">
+          <li class="nav-item selected" (click)="onNavSelectChange('statistic')">
             <div class="nav-link">Statistics</div>
           </li>
-          <li class="nav-item selected">
+          <li class="nav-item" (click)="onNavSelectChange('chart')">
             <div class="nav-link">Chart</div>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" (click)="onNavSelectChange('profile')">
             <div class="nav-link">Profile</div>
           </li>
           <!-- <li class="nav-item">
             <div class="nav-link">Financial</div>
           </li> -->
         </ul>
-        <div id="linechart">
-          <app-line-chart></app-line-chart>
+        <div [ngSwitch]="selectedComponent">
+          <!-- the same view can be shown in more than one case -->
+          <app-profile-description *ngSwitchCase="'profile'"></app-profile-description>
+          <app-statistic *ngSwitchCase="'statistic'"></app-statistic>
+          <div id="linechart" *ngSwitchCase="'chart'">
+            <app-line-chart></app-line-chart>
+          </div>
+          <app-profile-description *ngSwitchDefault></app-profile-description>
+
         </div>
       </div>
     </div>
@@ -37,4 +44,7 @@
       <app-stock-data [data]="stockData"></app-stock-data>
     </div>
   </div>
+
+
+
 </div>
