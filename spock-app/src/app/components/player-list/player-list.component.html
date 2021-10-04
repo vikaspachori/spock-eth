@@ -1,1 +1,8 @@
-<p>player-list works!</p>
+<div class="playerlist-container">
+    <div class="teamnames">
+        <div class="chip selected" *ngFor="let item of teamNames">
+            {{item}}
+            <img [class]="item.toLowerCase()">
+        </div>
+    </div>
+</div>
