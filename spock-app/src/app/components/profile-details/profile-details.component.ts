@@ -32,6 +32,12 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   onNavSelectChange(name) {
+    const selected = document.getElementsByClassName("selected")[0];
+    if (selected) {
+      selected.classList.remove("selected")
+    }
+    const currentElm = document.getElementById(name);
+    currentElm.classList.add("selected")
     this.selectedComponent = name;
   }
 

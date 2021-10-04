@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileContainerComponent } from './components/profile-container/profile-container.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
 import { ProfileDescriptionComponent } from './components/profile-description/profile-description.component';
+import { OrderBookComponent } from './components/order-book/order-book.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { ProfileDescriptionComponent } from './components/profile-description/pr
     MatchCardComponent,
     ProfileContainerComponent,
     StatisticComponent,
-    ProfileDescriptionComponent
+    ProfileDescriptionComponent,
+    OrderBookComponent
   ],
   imports: [
     BrowserModule,
