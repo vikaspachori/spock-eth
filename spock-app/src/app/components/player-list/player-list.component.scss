@@ -8,27 +8,38 @@
     background-color: #f1f1f1;
     cursor: pointer;
 }
-.chip img {
+img {
     float: left;
-    margin: 0 10px 0 -25px;
     height: 50px;
     width: 50px;
     border-radius: 50%;
     background-size: contain;
     background-repeat: no-repeat;
 }
-.selected{
+.selected {
     display: inline-block;
     padding: 0 25px;
     height: 50px;
     font-size: 16px;
     line-height: 50px;
     border-radius: 25px;
-    background-color: darkgrey;
+    background-color: #f1f1f1;
+    box-shadow: 1px 1px 18px 2px #4a4ae7;
     cursor: pointer;
 }
 .teamnames {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 30px;
+}
+.td {
+    font-weight: 600 !important;
+    cursor: pointer !important;
+}
+.playername {
+    line-height: 50px;
+}
+.playerlist {
+    max-height: 42em;
+    overflow: auto;
 }

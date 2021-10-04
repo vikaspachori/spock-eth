@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PlayerStockData } from 'src/app/models/assetplayer.model';
+import { PlayerStats } from 'src/app/models/playerstats.model';
 import { MatchContractsService } from 'src/app/services/match-contracts.service';
 
 @Component({
@@ -9,6 +10,11 @@ import { MatchContractsService } from 'src/app/services/match-contracts.service'
 })
 export class ProfileDetailsComponent implements OnInit {
 
+  @Input()
+  playerStats: PlayerStats
+
+  @Input()
+  playerPrice: String
   constructor(private contractService: MatchContractsService) { }
   stockData: PlayerStockData;
   async ngOnInit() {

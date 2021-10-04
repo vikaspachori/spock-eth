@@ -15,6 +15,7 @@ import { MainContainerComponent } from './components/main-container/main-contain
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MatchCardComponent } from './components/match-card/match-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileContainerComponent } from './components/profile-container/profile-container.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     NftClaimComponent,
     LoginComponent,
     MainContainerComponent,
-    MatchCardComponent
+    MatchCardComponent,
+    ProfileContainerComponent
   ],
   imports: [
     BrowserModule,

@@ -2,12 +2,13 @@
   <div class="row">
     <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 p-5">
       <div class="player-icons">
-        <div class="logo"></div>
-        <div class="playerName">Viral Kohli</div>
+        <div class="logo">
+          <!-- <img [src]="'https://images.cricket.com/players/'+playerStats.playerID+'_headshot_safari.png'"> -->
+        </div>
+        <div class="playerName">{{playerStats.fullName}}</div>
       </div>
       <div class="player-stock-infomation">
-        <div class="current-rate p-3">$200.25</div>
-        <div class="deviation p-3">-11.19%</div>
+        <div class="current-rate p-3">{{playerPrice}} SPOCK COINS</div>
       </div>
       <div class="tabbed-container">
         <ul class="nav nav-tabs">
@@ -32,10 +33,7 @@
         </div>
       </div>
     </div>
-    <div
-      class="col-md-4 col-lg-4 col-sm-12 col-xs-12 p-5"
-      style="backdrop-filter: contrast(0.8)"
-    >
+    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 p-5" style="backdrop-filter: contrast(0.8)">
       <app-stock-data [data]="stockData"></app-stock-data>
     </div>
   </div>

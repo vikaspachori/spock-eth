@@ -1,8 +1,40 @@
-<div class="playerlist-container">
-    <div class="teamnames">
-        <div class="chip selected" *ngFor="let item of teamNames">
-            {{item}}
-            <img [class]="item.toLowerCase()">
+<div class="container">
+    <div class="playerlist-container">
+        <div class="teamnames">
+            <div class="chip" [id]="item" *ngFor="let item of teamNames" (click)="onTeamSelect(item,$event)">
+                {{item}}
+                <img [class]="item.toLowerCase()">
+            </div>
         </div>
     </div>
+    <div class="playerlist" *ngIf="players && players.length>0;else warningmessage">
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Skill</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let player of players" (click)="onPlayerSelect(player)">
+                    <td>
+                        <div>
+                            <div class="playerlogo">
+                                <!-- <img [src]="'https://images.cricket.com/players/'+player.id+'_headshot_safari.png'"> -->
+                            </div>
+                            <div class="playername">
+                                {{player.pn}}
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        {{player.ps? player.ps:"N/A"}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <ng-template #warningmessage>
+        <div class="container" style="    margin-top: 13%;">
+            <h3 style="text-align: center;">Please select team to get a list</h3>
+        </div>
+    </ng-template>
 </div>
