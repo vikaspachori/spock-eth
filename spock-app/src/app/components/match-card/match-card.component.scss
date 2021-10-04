@@ -6,3 +6,25 @@
   margin: 10px;
   cursor: pointer;
 }
+.teamname {
+  margin-left: 13px;
+}
+
+.card-logo {
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.vs {
+  font-size: 22px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  justify-content: space-around;
+}
+.match-card-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}

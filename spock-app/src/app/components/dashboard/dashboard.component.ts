@@ -5,6 +5,8 @@ import { MatchData } from 'src/app/models/match.model';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { MatchDataService } from 'src/app/services/match-data.service';
 import { WalletService } from 'src/app/services/wallet.service';
+import { take, map } from "rxjs/operators"
+import * as _ from "lodash";
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -32,7 +34,12 @@ export class DashboardComponent implements OnInit {
   };
   async ngOnInit() {
 
-    this.matchData = this.matchService.getMatchData()
+    this.matchService.getMatchData().pipe(take(1), map((data: any) => data.data.matcheslist)).subscribe((d: MatchData[]) => {
+      this.matchData = d;
+      const grouped = _.groupBy(d, "matchStatus");
+      this.matchData = grouped.upcoming;
+    }
+    );
 
     this.playerassets = this.daashbaordservice.getAsset();
     this.trendingPlayers = this.daashbaordservice.getTrendingPlayers();
@@ -65,3 +72,4 @@ export class DashboardComponent implements OnInit {
     }
   }
 }
+

@@ -1,21 +1,30 @@
-<div class="card-container">
-  <div class="text-muted bold">
-    Match {{ matchData.number }}, Indian Premier League
+<div class="card-container" (click)="onClickCard(matchData._id)">
+  <div class="text-muted bold match-card-header">
+    <div>{{ matchData.matchNumber }}, Indian Premier League</div>
+
+    <div>{{ getMatchdate(matchData.startDate) }}</div>
+
   </div>
   <div class="location text-muted">
-    {{ matchData.place }}
+    <div>{{ matchData.venue }}</div>
   </div>
   <div class="flex">
-    <div class="match-details">
+    <div class="match-details mt-2 df">
       <div class="team1">
-        {{ matchData.team1 }}
+        <div [class]="getClassName(matchData.homeTeamShortName)">
+
+        </div>
+        <div class="teamname">{{matchData.homeTeamShortName}}</div>
+      </div>
+      <div class="vs">
+        V/S
       </div>
       <div class="team2">
-        {{ matchData.team2 }}
+        <div [class]="getClassName(matchData.awayTeamShortName)">
+        </div>
+        <div class="teamname">{{matchData.awayTeamShortName}}</div>
       </div>
     </div>
-    <div class="timing">
-      <div>{{ matchData.time }}</div>
-    </div>
+
   </div>
 </div>

@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { MatchData } from '../models/match.model';
 
 @Injectable({
@@ -6,52 +9,9 @@ import { MatchData } from '../models/match.model';
 })
 export class MatchDataService {
 
-  constructor() { }
-  getMatchData(): Array<MatchData> {
-    const matchData = [
-      {
-        number: "1",
-        place: "Dubai",
-        team1: "KKR",
-        team2: "RR",
-        time: "Today"
-      },
-      {
-        number: "2",
-        place: "Carrara",
-        team1: "CSK",
-        team2: "RCB",
-        time: "Today"
-      },
-      {
-        number: "3",
-        place: "Dubai",
-        team1: "SRH",
-        team2: "DD",
-        time: "Today"
-      },
-      {
-        number: "5",
-        place: "Dubai",
-        team1: "RCB",
-        team2: "PBKS",
-        time: "Today"
-      },
-      {
-        number: "1",
-        place: "Dubai",
-        team1: "KKR",
-        team2: "RR",
-        time: "Today"
-      },
-      {
-        number: "1",
-        place: "Dubai",
-        team1: "KKR",
-        team2: "RR",
-        time: "Today"
-      }
-    ]
-    return matchData;
+  constructor(private httpClient: HttpClient) { }
+  getMatchData(): Observable<MatchData> {
+    const apiUrl = `${environment.apiUrl}matches?update=false`;
+    return this.httpClient.get<MatchData>(apiUrl);
   }
 }
