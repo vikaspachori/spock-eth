@@ -11,7 +11,6 @@ export class AuthGuardGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const isConnected = localStorage.getItem("walletid") ? true : false;
-    // return true;
     if (isConnected) {
       return true;
     }

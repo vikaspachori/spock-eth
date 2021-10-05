@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PlayerStats } from 'src/app/models/playerstats.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile-description',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileDescriptionComponent implements OnInit {
 
+  @Input()
+  playerData: PlayerStats;
   constructor() { }
-
   ngOnInit(): void {
+
+  }
+
+  getImageUrl(playerid){
+    return environment.imageUrl.replace('{0}',playerid)
   }
 
 }

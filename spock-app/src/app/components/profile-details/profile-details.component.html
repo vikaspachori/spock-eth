@@ -30,7 +30,7 @@
         </ul>
         <div [ngSwitch]="selectedComponent">
           <!-- the same view can be shown in more than one case -->
-          <app-profile-description *ngSwitchCase="'profile'"></app-profile-description>
+          <app-profile-description [playerData]="playerStats" *ngSwitchCase="'profile'"></app-profile-description>
           <app-statistic *ngSwitchCase="'statistic'"></app-statistic>
           <div id="linechart" *ngSwitchCase="'chart'">
             <app-line-chart></app-line-chart>
