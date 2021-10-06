@@ -1,4 +1,4 @@
-<div class="profile-details-container">
+<div class="profile-details-container" *ngIf="playerStats">
   <div class="row">
     <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 p-5">
       <div class="player-icons">
@@ -33,11 +33,10 @@
           <app-profile-description [playerData]="playerStats" *ngSwitchCase="'profile'"></app-profile-description>
           <app-statistic *ngSwitchCase="'statistic'"></app-statistic>
           <div id="linechart" *ngSwitchCase="'chart'">
-            <app-line-chart></app-line-chart>
+            <app-line-chart [playerid]="playerStats.playerID" [hidex]=true></app-line-chart>
           </div>
           <app-order-book *ngSwitchCase="'orderbook'"></app-order-book>
-          <app-profile-description *ngSwitchDefault></app-profile-description>
-
+          <app-profile-description [playerData]="playerStats" *ngSwitchDefault></app-profile-description>
         </div>
       </div>
     </div>

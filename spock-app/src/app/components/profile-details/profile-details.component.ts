@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { PlayerStockData } from 'src/app/models/assetplayer.model';
 import { PlayerStats } from 'src/app/models/playerstats.model';
 import { MatchContractsService } from 'src/app/services/match-contracts.service';
+import { MatchDataService } from 'src/app/services/match-data.service';
 
 @Component({
   selector: 'app-profile-details',
@@ -16,8 +17,9 @@ export class ProfileDetailsComponent implements OnInit {
   @Input()
   playerPrice: String
 
+  playerHistoryData = [];
   selectedComponent: string;
-  constructor(private contractService: MatchContractsService) { }
+  constructor() { }
   stockData: PlayerStockData;
   async ngOnInit() {
     this.stockData = {

@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as echarts from 'echarts';
+import { MatchDataService } from 'src/app/services/match-data.service';
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss']
 })
 export class LineChartComponent implements OnInit {
+
 
   @Input()
   height: any;
@@ -18,17 +20,33 @@ export class LineChartComponent implements OnInit {
   lineColor: string;
 
   @Input()
+  playerid;
+
+  @Input()
+  chartDataArray: Array<any>;
+  @Input()
   bottom: number
   @Input()
   backgroundcolor: string
-  constructor() { }
+  constructor(private dataService: MatchDataService) { }
   chartDom: any;
   option: any;
   myChart: any;
   data = [];
+  xAxisData = [];
+  yAxisData = [];
   now = new Date(1997, 9, 3)
   value = Math.random() * 1000;
-  ngOnInit(): void {
+  async ngOnInit() {
+    if (this.playerid) {
+      const hData = await this.dataService.getPlayerHistory(this.playerid);
+      this.xAxisData = [];
+      this.yAxisData = [];
+      this.data = hData.priceArray.map((d, i) => {
+        this.xAxisData.push(d.price);
+        this.yAxisData.push("")
+      });
+    }
     if (this.height) {
       document.getElementById("main").style.height = this.height + "px";
     }
@@ -40,57 +58,29 @@ export class LineChartComponent implements OnInit {
     }
     this.chartDom = document.getElementById('main');
     this.myChart = echarts.init(this.chartDom);
-
-    for (var i = 0; i < 50; i++) {
-      this.data.push(this.randomData());
-    }
-    this.data[this.data.length - 1].value[1] = 1000;
     // debugger
     this.option = {
-      title: {
-        text: ''
-      },
-      grid: {
-        left: 0,
-        top: 0,
-        right: 10,
-        bottom: this.bottom
-      },
-      backgroundColor: this.backgroundcolor,
-
       tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-          params = params[0];
-          var date = new Date(params.name);
-          return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
-        },
-        axisPointer: {
-          animation: false
-        }
       },
       xAxis: {
-        type: 'time',
-        show: !this.hidex,
+        type: 'category',
+        data: this.yAxisData,
         splitLine: {
           show: false
-        }
+        },
+        show: false
       },
       yAxis: {
-        type: 'value',
-        show: !this.hideY,
-        splitLine: {
-          show: false
-        }
+        type: 'value'
       },
-      series: [{
-        name: '',
-        type: 'line',
-        showSymbol: false,
-        hoverAnimation: false,
-        data: this.data,
-        lineStyle: { color: this.lineColor }
-      }]
+      series: [
+        {
+          data: this.xAxisData,
+          type: 'line',
+          smooth: true
+        }
+      ]
     };
 
 
