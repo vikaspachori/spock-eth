@@ -7,6 +7,7 @@ import { MatchDataService } from 'src/app/services/match-data.service';
 import { WalletService } from 'src/app/services/wallet.service';
 import { take, map } from "rxjs/operators"
 import * as _ from "lodash";
+import { LocalstorageService } from 'src/app/services/localstorage.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -33,7 +34,13 @@ export class DashboardComponent implements OnInit {
     autoplaySpeed: 1000,
   };
   async ngOnInit() {
-
+    if (LocalstorageService.getWalletId()) {
+      const walletAddress = LocalstorageService.getWalletId();
+      const elem = document.getElementById("walletbtn") as any;
+      elem.value = walletAddress;
+      elem.disabled = true;
+      this.isWalletConnected = true;
+    }
     this.matchService.getMatchData().pipe(take(1), map((data: any) => data.data.matcheslist)).subscribe((d: MatchData[]) => {
       this.matchData = d;
       const grouped = _.groupBy(d, "matchStatus");

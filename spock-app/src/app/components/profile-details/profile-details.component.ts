@@ -20,8 +20,6 @@ export class ProfileDetailsComponent implements OnInit {
   constructor(private contractService: MatchContractsService) { }
   stockData: PlayerStockData;
   async ngOnInit() {
-    const data = await this.contractService.getContractInstance();
-    debugger;
     this.stockData = {
       high: "$ 20.5",
       low: "$10.5",
