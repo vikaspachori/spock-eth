@@ -26,4 +26,9 @@ export class MatchDataService {
     const apiUrl = `${environment.apiUrl}players/${playerid}?update=false`;
     return this.httpClient.get<PlayerStatsResponse>(apiUrl);
   }
+
+  getPlayerHistory(playerid): Promise<any> {
+    const apiUrl = `${environment.apiUrl}players/${playerid}/stats/historical`;
+    return this.httpClient.get(apiUrl).toPromise()
+  }
 }
