@@ -15,6 +15,9 @@ export class NavigationComponent implements OnInit {
     if (window.location.href.includes("players")) {
       document.getElementById("profile").classList.add("nav-selected");
     }
+    else if (window.location.href.includes("portfolio")) {
+      document.getElementById("home").classList.add("nav-selected")
+    }
     else {
       document.getElementById("home").classList.add("nav-selected")
     }

@@ -19,6 +19,9 @@ import { ProfileContainerComponent } from './components/profile-container/profil
 import { StatisticComponent } from './components/statistic/statistic.component';
 import { ProfileDescriptionComponent } from './components/profile-description/profile-description.component';
 import { OrderBookComponent } from './components/order-book/order-book.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { ToastrModule } from "ngx-toastr";
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,13 +38,16 @@ import { OrderBookComponent } from './components/order-book/order-book.component
     ProfileContainerComponent,
     StatisticComponent,
     ProfileDescriptionComponent,
-    OrderBookComponent
+    OrderBookComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
     SlickCarouselModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

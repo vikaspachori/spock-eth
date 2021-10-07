@@ -13,15 +13,17 @@ export class MatchContractsService {
   contractabi;
   constructor(private http: HttpClient) {
     this.storedwalletAddress = LocalstorageService.getWalletId();
-    this.http.get("/assets/abi.json").toPromise().then(d => {
-      this.contractabi = d;
-    })
+
   }
 
+  async getAbi() {
+    this.contractabi = await this.http.get("/assets/abi.json").toPromise();
+  }
   async getUserStock() {
     const contranctInstace = await this.getContractInstance();
     const walletAddress = LocalstorageService.getWalletId();
-    await contranctInstace.methods.getUserStocks(walletAddress).call();
+    const data = await contranctInstace.methods.getUserStocks(walletAddress).call();
+    return data;
   }
 
   async buyStock(playerid, playerprice, playername) {
@@ -38,7 +40,6 @@ export class MatchContractsService {
         .encodeABI(),
       value: bnValue.toString("hex") // in WEI, which is equivalent to 1 ether
     };
-    debugger;
     try {
       const txHash = await window.ethereum.request({
         method: "eth_sendTransaction",
@@ -59,6 +60,9 @@ export class MatchContractsService {
     }
   }
   async getContractInstance() {
+    if (!this.contractabi) {
+      await this.getAbi()
+    }
     var web3: any = new Web3(window.web3.currentProvider);
     const contractInstance = new web3.eth.Contract(this.contractabi, this.contractAddress);
     return contractInstance;
