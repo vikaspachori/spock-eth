@@ -20,7 +20,7 @@ export class LineChartComponent implements OnInit {
   lineColor: string;
 
   @Input()
-  playerid;
+  historyData: any;
 
   @Input()
   chartDataArray: Array<any>;
@@ -38,8 +38,9 @@ export class LineChartComponent implements OnInit {
   now = new Date(1997, 9, 3)
   value = Math.random() * 1000;
   async ngOnInit() {
-    if (this.playerid) {
-      const hData = await this.dataService.getPlayerHistory(this.playerid);
+    if (this.historyData) {
+      const hData = Object.assign({}, this.historyData);
+      debugger;
       this.xAxisData = [];
       this.yAxisData = [];
       this.data = hData.priceArray.map((d, i) => {

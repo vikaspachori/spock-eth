@@ -33,7 +33,7 @@
           <app-profile-description [playerData]="playerStats" *ngSwitchCase="'profile'"></app-profile-description>
           <app-statistic *ngSwitchCase="'statistic'"></app-statistic>
           <div id="linechart" *ngSwitchCase="'chart'">
-            <app-line-chart [playerid]="playerStats.playerID" [hidex]=true></app-line-chart>
+            <app-line-chart [historyData]="playerHistoryData" [hidex]=true></app-line-chart>
           </div>
           <app-order-book *ngSwitchCase="'orderbook'"></app-order-book>
           <app-profile-description [playerData]="playerStats" *ngSwitchDefault></app-profile-description>
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 p-5" style="backdrop-filter: contrast(0.8)">
-      <app-stock-data [data]="stockData"></app-stock-data>
+      <app-stock-data (onBuyClick)="onBuyStock($event)" [data]="playerHighLoaw"></app-stock-data>
     </div>
   </div>
 

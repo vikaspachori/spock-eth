@@ -15,24 +15,6 @@
         </td>
       </tr>
       <tr>
-        <td>Total Bought</td>
-        <td>
-          <span>{{ data?.market_cap }}</span>
-        </td>
-      </tr>
-      <!-- <tr>
-        <td>Total Transaction Volume(1D)</td>
-        <td>
-          <span>{{ data?.vol }}</span>
-        </td>
-      </tr> -->
-      <tr>
-        <td>Total Supply</td>
-        <td>
-          <span>{{ data?.totalSupply }}</span>
-        </td>
-      </tr>
-      <tr>
         <td>Popularity</td>
         <td>
           <span>{{ data?.popularity }}</span>
@@ -69,12 +51,12 @@
             </tr>
             <tr>
               <td>Stocks</td>
-              <td><div class="stockdata">0</div></td>
+              <td><input class="stockdata" value="0" type="number" min="0"></td>
             </tr>
 
             <tr>
               <td>Market Price</td>
-              <td></td>
+              <td>{{data.marketprice}}</td>
             </tr>
 
             <tr class="last-row">
@@ -89,12 +71,9 @@
           </table>
         </div>
         <div class="footer-container">
-          <button class="btn">Buy Shares</button>
+          <button class="btn" (click)="buyClick()">Buy Shares</button>
         </div>
-        <div
-          class="p-3"
-          style="text-align: center; color: grey; cursor: pointer"
-        >
+        <div class="p-3" style="text-align: center; color: grey; cursor: pointer">
           Treding Options
         </div>
       </div>

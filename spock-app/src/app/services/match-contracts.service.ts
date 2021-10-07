@@ -26,7 +26,8 @@ export class MatchContractsService {
 
   async buyStock(playerid, playerprice, playername) {
     const stockPrice = playerprice * 1000000000000000;
-    const bnValue = new BN(stockPrice.toString());
+    // const bnValue = new BN(stockPrice.toString());
+    const bnValue = new BN(1000000000000000);
 
     const contractInstance = await this.getContractInstance();
     const transactionParameters = {
@@ -37,6 +38,7 @@ export class MatchContractsService {
         .encodeABI(),
       value: bnValue.toString("hex") // in WEI, which is equivalent to 1 ether
     };
+    debugger;
     try {
       const txHash = await window.ethereum.request({
         method: "eth_sendTransaction",

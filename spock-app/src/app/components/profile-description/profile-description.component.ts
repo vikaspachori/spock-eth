@@ -11,11 +11,13 @@ export class ProfileDescriptionComponent implements OnInit {
 
   @Input()
   playerData: PlayerStats;
+
+  profileDesc: String;
   constructor() { }
   ngOnInit(): void {
     if (this.playerData) {
       const broken = this.playerData.description.split("<br />");
-      this.playerData.description = broken.slice(1, broken.length - 3).join("").replace(/(\r\n|\n|\r)/gm, "");;
+      this.profileDesc = broken.slice(1, broken.length - 3).join("").replace(/(\r\n|\n|\r)/gm, "");;
     }
   }
 

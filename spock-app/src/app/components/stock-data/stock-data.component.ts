@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { PlayerStockData } from 'src/app/models/assetplayer.model';
 
 @Component({
@@ -6,13 +6,19 @@ import { PlayerStockData } from 'src/app/models/assetplayer.model';
   templateUrl: './stock-data.component.html',
   styleUrls: ['./stock-data.component.scss']
 })
-export class StockDataComponent implements OnInit {
+export class StockDataComponent {
 
   @Input()
-  data: PlayerStockData
+  data: any
+
+  @Output()
+  onBuyClick = new EventEmitter()
   constructor() { }
 
-  ngOnInit(): void {
+  buyClick() {
+    this.onBuyClick.emit({
+      numbers: 1,
+      price: this.data.marketprice
+    })
   }
-
 }
