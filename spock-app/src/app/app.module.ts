@@ -22,6 +22,8 @@ import { OrderBookComponent } from './components/order-book/order-book.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ToastrModule } from "ngx-toastr";
+import { MatTableModule } from '@angular/material/table';
+import {MatTableDataSource} from '@angular/material/table'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +49,8 @@ import { ToastrModule } from "ngx-toastr";
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
