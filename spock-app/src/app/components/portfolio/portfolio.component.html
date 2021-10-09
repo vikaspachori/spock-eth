@@ -1,6 +1,8 @@
+
 <div class="container">
   <div class="playerlist-container">
     <h2 style="margin-top: 20px;margin-bottom:20px;">My Portfolio</h2>
+    <div id="prtstats" style="height:300px;"></div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
       <!--- Note that these columns can be defined in any order.
@@ -43,4 +45,6 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
     </mat-paginator>
   </div>
+
+  
 </div>
