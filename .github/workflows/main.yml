@@ -14,9 +14,9 @@ jobs:
         with:
           node-version: 16.x
       - run: ls
-      - run: cd spock-app
+      - working-directory: ./spock-app
       - run: ls
-      - run: npm install
+      - run: npm install 
       - run: CI=false npm run build --prod
 
       - name: "Deploy to Skynet"
