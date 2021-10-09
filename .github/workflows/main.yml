@@ -22,13 +22,10 @@ jobs:
         working-directory: ./spock-app
       - run: CI=false npm run build --prod
         working-directory: ./spock-app
-      - run: ls
-      - run: ls
-        working-directory: ./spock-app
 
       - name: "Deploy to Skynet"
         uses: SkynetLabs/deploy-to-skynet-action@v2
         with:
-          upload-dir: ./spock-app/build
+          upload-dir: ./spock-app/dist
           github-token: ${{ secrets.GITHUB_TOKEN }}
           registry-seed: "spock-eth"
