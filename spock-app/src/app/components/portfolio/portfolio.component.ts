@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatTable } from '@angular/material/table';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 export interface Player {
   a: string;
@@ -28,7 +29,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = ['a', 'b', 'c', 'd', 'e'];
-  constructor(private contractSerice: MatchContractsService) {
+  constructor(private contractSerice: MatchContractsService, private router: Router) {
 
     this.contractSerice.getUserStock().then((data) => {
       console.log(data);
@@ -53,6 +54,9 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  onClick(row) {
+    this.router.navigateByUrl(`/player/${row.a}`);
+  }
 
   async ngOnInit() {
 
