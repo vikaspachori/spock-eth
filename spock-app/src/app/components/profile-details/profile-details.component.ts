@@ -5,6 +5,7 @@ import { PlayerStats } from 'src/app/models/playerstats.model';
 import { MatchContractsService } from 'src/app/services/match-contracts.service';
 import { MatchDataService } from 'src/app/services/match-data.service';
 
+
 @Component({
   selector: 'app-profile-details',
   templateUrl: './profile-details.component.html',
@@ -24,10 +25,12 @@ export class ProfileDetailsComponent implements OnChanges {
   price;
   playerHighLoaw;
   selectedComponent: string;
+  statsData;
   constructor(private matchDataService: MatchDataService, private matchContractService: MatchContractsService, private toastr: ToastrService) { }
   async ngOnChanges({ playerStats }: SimpleChanges) {
     if (playerStats.currentValue) {
       const data = await this.matchDataService.getPlayerHistory(this.playerStats.playerID);
+      
       this.playerHistoryData = data;
       const sorted = data.priceArray.map(d => d.price + 100).sort();
       this.price = parseInt(this.playerPrice) + 100
@@ -39,18 +42,17 @@ export class ProfileDetailsComponent implements OnChanges {
     }
   }
   stockData: any;
-
+  stattsData: any;
 
   async onBuyStock(eventdata) {
-    debugger;
     const data = await this.matchContractService.buyStock(this.playerStats.playerID, eventdata.price, this.playerStats.fullName, eventdata.total);
     this.toastr.show(data.status)
 
   }
 
   async sellStock(eventdata) {
-    debugger;
-    const dat = await this.matchContractService.sellPlayerStock(this.playerStats.playerID, this.price, eventdata.count)
+    const dat = await this.matchContractService.sellPlayerStock(this.playerStats.playerID, this.price, eventdata.count);
+    this.toastr.show(dat.status);
   }
   onNavSelectChange(name) {
     const selected = document.getElementsByClassName("selected")[0];

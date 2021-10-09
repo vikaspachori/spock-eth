@@ -15,11 +15,11 @@
           <li class="nav-item " id="orderbook" (click)="onNavSelectChange('orderbook')">
             <div class="nav-link">Order book</div>
           </li>
-          <li class="nav-item " id="statistic" (click)="onNavSelectChange('statistic')">
+          <li class="nav-item "  id="statistic" (click)="onNavSelectChange('statistic')">
             <div class="nav-link">Statistics</div>
           </li>
           <li class="nav-item" id="chart" (click)="onNavSelectChange('chart')">
-            <div class="nav-link">Chart</div>
+            <div class="nav-link">Peformance</div>
           </li>
           <li class="nav-item selected" id="profile" (click)="onNavSelectChange('profile')">
             <div class="nav-link">Profile</div>
@@ -31,7 +31,7 @@
         <div [ngSwitch]="selectedComponent">
           <!-- the same view can be shown in more than one case -->
           <app-profile-description [playerData]="playerStats" *ngSwitchCase="'profile'"></app-profile-description>
-          <app-statistic *ngSwitchCase="'statistic'"></app-statistic>
+          <app-statistic [statsData]="playerStats" *ngSwitchCase="'statistic'"></app-statistic>
           <div id="linechart" *ngSwitchCase="'chart'">
             <app-line-chart [historyData]="playerHistoryData" [hidex]=true></app-line-chart>
           </div>

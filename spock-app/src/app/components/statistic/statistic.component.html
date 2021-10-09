@@ -1,12 +1,43 @@
-<table class="table">
-    <thead>
-        <th>SKILLS</th>
-        <th>TEST</th>
-        <th>ODI</th>
-        <th>T20s</th>
-    </thead>
-    <tbody>
-    <tbody>
+<div class="contaier">
+    <div class="batting row">
+        <div class="playerlist-container row">
+            <div *ngFor="let item of formats" class="col-md-4 col-lg-4">
+                <mat-card class="example-card">
+                    <mat-card-subtitle>{{item}}</mat-card-subtitle>
+                    <mat-card-content>
+                        <div class="container">
+                            
+                        </div>
 
-    </tbody>
-</table>
+                    </mat-card-content>
+
+                    <mat-card-footer>
+
+                    </mat-card-footer>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    <div class="bowing row">
+        <div class="playerlist-container row">
+            <div *ngFor="let item of formats" class="col-md-4 col-lg-4">
+                <mat-card class="example-card">
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    <mat-card-title>Shiba Inu</mat-card-title>
+                    <mat-card-content>
+                        <p>This card has divider and indeterminate progress as footer</p>
+
+                    </mat-card-content>
+
+                    <mat-card-actions>
+                        <button mat-button>LIKE</button>
+                        <button mat-button>SHARE</button>
+                    </mat-card-actions>
+                    <mat-card-footer>
+
+                    </mat-card-footer>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,6 +16,7 @@ export class StockDataComponent {
 
   @Output()
   onSellClick = new EventEmitter();
+  isBuySelected = true;
   constructor() { }
 
   buyClick() {
@@ -26,11 +27,28 @@ export class StockDataComponent {
       total: val.value
     })
   }
-  sellStock() {
-    debugger;
-    const data = {
-      count: 1
-    }
-    this.onSellClick.emit(data)
+
+  sellClick() {
+    const val = document.getElementById("total") as any;
+    this.onSellClick.emit({
+      count: val.value
+    })
+  }
+  sellSegmentClick() {
+    const buyButton = document.getElementById("buy")
+    const sellButton = document.getElementById("sell");
+    sellButton.classList.remove("blb");
+    buyButton.classList.add("blr");
+    this.isBuySelected = false;
+
+  }
+
+  buySegmentClick() {
+    const buyButton = document.getElementById("buy")
+    const sellButton = document.getElementById("sell");
+    sellButton.classList.add("blb");
+    buyButton.classList.remove("blr");
+    this.isBuySelected = true;
+
   }
 }
