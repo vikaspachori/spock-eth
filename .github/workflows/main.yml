@@ -14,10 +14,6 @@ jobs:
         with:
           node-version: 16.x
           
-      - run: ls
-        working-directory: ./spock-app
-      - run: ls
-        working-directory: ./spock-app
       - run: npm install 
         working-directory: ./spock-app
       - run: CI=false npm run build --prod
@@ -26,6 +22,6 @@ jobs:
       - name: "Deploy to Skynet"
         uses: SkynetLabs/deploy-to-skynet-action@v2
         with:
-          upload-dir: ./spock-app/dist
+          upload-dir: ./spock-app/dist/spock-app
           github-token: ${{ secrets.GITHUB_TOKEN }}
           registry-seed: "spock-eth"
