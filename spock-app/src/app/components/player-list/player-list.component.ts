@@ -42,7 +42,7 @@ export class PlayerListComponent implements OnInit {
   async buyAll() {
     for (let i = 0; i < this.players.length && i < 10; i++) {
       const elm = this.players[i];
-      const data = await this.contractService.buyStock(elm.id, 1, elm.pn);
+      const data = await this.contractService.buyStock(elm.id, 1, elm.pn, 1);
       debugger;
     }
   }

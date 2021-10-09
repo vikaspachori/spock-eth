@@ -24,6 +24,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ToastrModule } from "ngx-toastr";
 import { MatTableModule } from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table'; 
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import {MatTableDataSource} from '@angular/material/table';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

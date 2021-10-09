@@ -1,5 +1,4 @@
 <div class="container">
-    <button class="btn btn-primary" (click)="buyAll()">BUY Everyone</button>
     <div class="playerlist-container">
         <div class="teamnames">
             <div class="chip" [id]="item" *ngFor="let item of teamNames" (click)="onTeamSelect(item,$event)">
@@ -19,7 +18,7 @@
                     <td>
                         <div>
                             <div class="playerlogo">
-                                <!-- <img [src]="'https://images.cricket.com/players/'+player.id+'_headshot_safari.png'"> -->
+                                <img [src]="'https://images.cricket.com/players/'+player.id+'_headshot_safari.png'">
                             </div>
                             <div class="playername">
                                 {{player.pn}}

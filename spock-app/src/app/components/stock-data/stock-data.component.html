@@ -15,11 +15,11 @@
         </td>
       </tr>
       <tr>
-        <td>Popularity</td>
+        <!-- <td>Popularity</td>
         <td>
           <span>{{ data?.popularity }}</span>
         </td>
-      </tr>
+      </tr> -->
       <tr>
         <td colspan="2">
           <div class="marginwidget"></div>
@@ -30,7 +30,7 @@
   <div class="buy-sell">
     <div class="btn-container">
       <div class="buy">BUY</div>
-      <div class="sell blb">SELL</div>
+      <div class="sell blb" (click)="sellStock()">SELL</div>
     </div>
     <div class="buy-options">
       <div>
@@ -51,7 +51,7 @@
             </tr>
             <tr>
               <td>Stocks</td>
-              <td><input class="stockdata" value="0" type="number" min="0"></td>
+              <td><input class="stockdata" id="total" value="0" type="number" min="0"></td>
             </tr>
 
             <tr>

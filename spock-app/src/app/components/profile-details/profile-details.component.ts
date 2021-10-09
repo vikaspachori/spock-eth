@@ -42,9 +42,15 @@ export class ProfileDetailsComponent implements OnChanges {
 
 
   async onBuyStock(eventdata) {
-    const data = await this.matchContractService.buyStock(this.playerStats.playerID, eventdata.price, this.playerStats.fullName);
+    debugger;
+    const data = await this.matchContractService.buyStock(this.playerStats.playerID, eventdata.price, this.playerStats.fullName, eventdata.total);
     this.toastr.show(data.status)
 
+  }
+
+  async sellStock(eventdata) {
+    debugger;
+    const dat = await this.matchContractService.sellPlayerStock(this.playerStats.playerID, this.price, eventdata.count)
   }
   onNavSelectChange(name) {
     const selected = document.getElementsByClassName("selected")[0];

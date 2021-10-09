@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { MatchContractsService } from 'src/app/services/match-contracts.service';
-import {MatTableDataSource} from '@angular/material/table'; 
+import { MatTableDataSource } from '@angular/material/table';
 import { MatTable } from '@angular/material/table';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 export interface Player {
   a: string;
@@ -21,14 +22,16 @@ export interface Player {
 
 
 
-export class PortfolioComponent implements OnInit {
+export class PortfolioComponent implements OnInit, AfterViewInit {
 
   temp: Player[] = [];
-  dataSource;
+  dataSource: MatTableDataSource<any>
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = ['a', 'b', 'c', 'd', 'e'];
-  constructor(private contractSerice: MatchContractsService) { 
+  constructor(private contractSerice: MatchContractsService) {
 
-    this.contractSerice.getUserStock().then((data) => {console.log(data);
+    this.contractSerice.getUserStock().then((data) => {
+      console.log(data);
       data.forEach(element => {
         let a = {} as Player;
         a.a = element[0];
@@ -37,20 +40,24 @@ export class PortfolioComponent implements OnInit {
         a.d = element[3];
         a.e = element[4];
         this.temp.push(a);
-        
-      });
-      
-       console.log(this.temp);
-      this.dataSource = new MatTableDataSource(this.temp);});
-    
 
+      });
+
+
+      this.dataSource = new MatTableDataSource(this.temp);
+    });
+
+
+  }
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
   }
 
 
   async ngOnInit() {
- 
-    
-  //  debugger;
+
+
+    //  debugger;
   }
 
 }

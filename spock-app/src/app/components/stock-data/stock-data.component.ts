@@ -13,12 +13,24 @@ export class StockDataComponent {
 
   @Output()
   onBuyClick = new EventEmitter()
+
+  @Output()
+  onSellClick = new EventEmitter();
   constructor() { }
 
   buyClick() {
+    const val = document.getElementById("total") as any;
     this.onBuyClick.emit({
       numbers: 1,
-      price: this.data.marketprice
+      price: this.data.marketprice,
+      total: val.value
     })
+  }
+  sellStock() {
+    debugger;
+    const data = {
+      count: 1
+    }
+    this.onSellClick.emit(data)
   }
 }
