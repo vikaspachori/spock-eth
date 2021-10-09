@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { map, take } from 'rxjs/operators';
 import { Player } from 'src/app/models/player.model';
 import { Teams } from 'src/app/models/team.enum';
+import { MatchContractsService } from 'src/app/services/match-contracts.service';
 import { MatchDataService } from 'src/app/services/match-data.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { MatchDataService } from 'src/app/services/match-data.service';
   styleUrls: ['./player-list.component.scss']
 })
 export class PlayerListComponent implements OnInit {
-  constructor(private matchService: MatchDataService, private router: Router) { }
+  constructor(private matchService: MatchDataService, private router: Router, private contractService: MatchContractsService) { }
   teamNames = [];
   players: Array<Player>
   ngOnInit(): void {
@@ -38,5 +39,11 @@ export class PlayerListComponent implements OnInit {
       this.players = [...data];
     })
   }
-
+  async buyAll() {
+    for (let i = 0; i < this.players.length && i < 10; i++) {
+      const elm = this.players[i];
+      const data = await this.contractService.buyStock(elm.id, 1, elm.pn);
+      debugger;
+    }
+  }
 }

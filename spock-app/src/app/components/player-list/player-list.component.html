@@ -1,4 +1,5 @@
 <div class="container">
+    <button class="btn btn-primary" (click)="buyAll()">BUY Everyone</button>
     <div class="playerlist-container">
         <div class="teamnames">
             <div class="chip" [id]="item" *ngFor="let item of teamNames" (click)="onTeamSelect(item,$event)">
