@@ -26,6 +26,6 @@ jobs:
       - name: "Deploy to Skynet"
         uses: SkynetLabs/deploy-to-skynet-action@v2
         with:
-          upload-dir: build
+          upload-dir: ./spock-app/build
           github-token: ${{ secrets.GITHUB_TOKEN }}
           registry-seed: "spock-eth"
