@@ -1,0 +1,31 @@
+name: Deploy to Skynet
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          
+      - run: ls
+        working-directory: ./spock-app
+      - run: ls
+        working-directory: ./spock-app
+      - run: npm install 
+        working-directory: ./spock-app
+      - run: CI=false npm run build --prod
+        working-directory: ./spock-app
+
+      - name: "Deploy to Skynet"
+        uses: SkynetLabs/deploy-to-skynet-action@v2
+        with:
+          upload-dir: build
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          registry-seed: "spock-eth"
