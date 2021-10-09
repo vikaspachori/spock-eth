@@ -25,6 +25,9 @@ import { ToastrModule } from "ngx-toastr";
 import { MatTableModule } from '@angular/material/table';
 import {MatTableDataSource} from '@angular/material/table'; 
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import {MatGridListModule} from '@angular/material/grid-list'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +55,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCardModule,
+    MatButtonModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

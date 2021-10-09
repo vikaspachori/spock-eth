@@ -1,1 +1,25 @@
-<p>nft-claim works!</p>
+<div class="container nftclaim">
+    <h3>Congratulations! Claim your NFT here</h3>
+    <div class="playerlist-container">
+        <mat-grid-list class="nftclaimlist" cols="3">
+            <ng-template let-content ngFor [ngForOf]="images">
+
+
+                <mat-grid-tile>
+
+                    <mat-card class="example-card">
+
+                        <img mat-card-image src="../../../assets/{{content}}" alt="{{content}}">
+
+                        <mat-card-actions class="claimbtn">
+                            <button mat-raised-button color="primary">Claim</button>
+
+                        </mat-card-actions>
+
+
+                    </mat-card>
+                </mat-grid-tile>
+            </ng-template>
+        </mat-grid-list>
+    </div>
+</div>
