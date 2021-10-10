@@ -1,32 +1,33 @@
 table.mat-elevation-z8 {
-    width: 100%;
-    
-  }
-
-  .mat-column-a {
-    width: 32px;
-   
-    text-align: center;
-  }
-
-  .mat-column-b{
-    
-    padding-right: 24px;
-    text-align: center;
+  width: 100%;
 }
-.mat-column-c{
- 
+
+.mat-column-a {
+  width: 32px;
+
+  text-align: center;
+}
+
+.mat-column-b {
   padding-right: 24px;
   text-align: center;
 }
-.mat-column-d{
-  
+.mat-column-c {
   padding-right: 24px;
   text-align: center;
 }
-.mat-column-e{
-    
+.mat-column-d {
+  padding-right: 24px;
+  text-align: center;
+}
+.mat-column-e {
   padding-right: 24px;
   text-align: center;
 }
 
+th {
+  line-height: 50px;
+  font-weight: 700;
+  /* font-size: 20px; */
+  color: black;
+}
