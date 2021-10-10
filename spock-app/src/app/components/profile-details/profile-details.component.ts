@@ -33,10 +33,10 @@ export class ProfileDetailsComponent implements OnChanges {
       
       this.playerHistoryData = data;
       const sorted = data.priceArray.map(d => d.price + 100).sort();
-      this.price = parseInt(this.playerPrice) + 100
+      this.price = parseInt(this.playerPrice) + 100;
       this.playerHighLoaw = Object.assign({}, {
-        low: sorted[0],
-        high: sorted[sorted.length - 1],
+        low: sorted[sorted.length - 1],
+        high: sorted[0],
         marketprice: this.price
       })
     }
