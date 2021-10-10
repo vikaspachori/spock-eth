@@ -110,10 +110,10 @@ export class PortfolioComponent implements OnInit {
 
   }
 
-  
+
 
   onClick(row) {
-    this.router.navigateByUrl(`/player/${row.a}`);
+    this.router.navigate([`player`, row.a]);
   }
 
 

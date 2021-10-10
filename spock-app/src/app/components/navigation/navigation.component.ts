@@ -30,7 +30,7 @@ export class NavigationComponent implements OnInit {
       element.classList.remove("nav-selected")
     }
     elm.classList.add("nav-selected")
-    this.router.navigateByUrl(url)
+    this.router.navigate([url])
   }
 
   logout() {

@@ -14,13 +14,13 @@ export class LoginComponent implements OnInit {
 
   async ngOnInit() {
     if (LocalstorageService.getWalletId()) {
-      this.router.navigateByUrl("/");
+      this.router.navigate(["/"]);
       return;
     }
     const data = await this.walletService.connectAccount();
     if (data) {
       localStorage.setItem("walletid", data);
-      this.router.navigateByUrl("/");
+      this.router.navigate(["/"]);
     }
 
   }

@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit {
   }
 
   redirecToPlayerProfile(data: TrendinPlayers): void {
-    this.router.navigateByUrl(`player/${data.id}`);
+    // this.router.navigate([]);
   }
   async connectWallet(e) {
     const data = await this.walletService.connectAccount();
