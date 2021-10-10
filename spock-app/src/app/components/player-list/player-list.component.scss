@@ -7,14 +7,25 @@
     border-radius: 25px;
     background-color: #f1f1f1;
     cursor: pointer;
+    img {
+        float: left;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
 }
-img {
-    float: left;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
+.playerlogo{
+    img {
+        float: left;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background-size: contain;
+        margin-right: 1rem;;
+        background-repeat: no-repeat;
+    }
 }
 .selected {
     display: inline-block;
