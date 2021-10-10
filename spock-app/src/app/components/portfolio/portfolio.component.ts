@@ -41,7 +41,7 @@ export class PortfolioComponent implements OnInit {
   temp: Player[] = [];
   dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['a', 'b', 'c', 'd', 'e'];
+  displayedColumns: string[] = ['a', 'b', 'c', 'e'];
   constructor(private contractSerice: MatchContractsService, private router: Router) {
 
 
