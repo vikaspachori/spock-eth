@@ -28,7 +28,7 @@ export interface Player {
 
 
 
-export class PortfolioComponent implements OnInit, AfterViewInit {
+export class PortfolioComponent implements OnInit {
 
 
   chartDom: any;
@@ -73,6 +73,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
 
 
       this.dataSource = new MatTableDataSource(this.temp);
+      this.dataSource.paginator = this.paginator;
     });
 
 
@@ -109,9 +110,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
 
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-  }
+  
 
   onClick(row) {
     this.router.navigateByUrl(`/player/${row.a}`);
