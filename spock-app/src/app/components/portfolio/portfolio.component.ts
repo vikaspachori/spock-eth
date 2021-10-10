@@ -60,10 +60,11 @@ export class PortfolioComponent implements OnInit {
       a.a = element[0];
       a.b = element[1];
       a.c = element[2];
-      a.d = element[3];
-      a.e = element[4];
+      a.d = (parseInt(element[3])/parseInt(element[2])).toString();
+      a.e = (parseInt(element[3])/1000).toString();
       this.temp.push(a);
 
+      
       let dataPoint: any;
       dataPoint = {};
       dataPoint.value = a.d;
