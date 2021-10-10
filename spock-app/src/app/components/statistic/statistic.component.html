@@ -1,12 +1,103 @@
-<table class="table">
-    <thead>
-        <th>SKILLS</th>
-        <th>TEST</th>
-        <th>ODI</th>
-        <th>T20s</th>
-    </thead>
-    <tbody>
-    <tbody>
+<div class="contaier">
+    <div class="batting p-3 row">
 
-    </tbody>
-</table>
+        <div *ngFor="let item of formats" class="col-md-4 col-lg-4">
+            <mat-card class="example-card">
+
+                <mat-card-content>
+                    <div class="container">
+                        <mat-card-title>
+                            <mat-card-subtitle>
+                                {{item}}
+                            </mat-card-subtitle>
+                        </mat-card-title>
+                        <div class="total-runs">
+                            <div>Matches</div>
+                            <div>{{battingStats[item][0].matches }}</div>
+                        </div>
+                        <div class="total-runs">
+                            <div>Runs</div>
+                            <div>{{battingStats[item][0].runs }}</div>
+                        </div>
+                        <div class="total-runs">
+                            <div>Average</div>
+                            <div>{{battingStats[item][0].average }}</div>
+                        </div>
+                        <div class="total-runs">
+                            <div>Strike Rate</div>
+                            <div>{{battingStats[item][0].strikeRate }}</div>
+                        </div>
+                        <div class="total-runs">
+                            <div>100/50</div>
+                            <div>{{battingStats[item][0].hundredsfifties ? battingStats[item][0].hundredsfifties :0 }}
+                            </div>
+                        </div>
+                        <div class="total-runs">
+                            <div>Runs</div>
+                            <div>{{battingStats[item][0].runs }}</div>
+                        </div>
+                    </div>
+
+                </mat-card-content>
+
+                <mat-card-footer>
+
+                </mat-card-footer>
+            </mat-card>
+        </div>
+
+    </div>
+    <div class="batting p-3 row">
+
+        <div *ngFor="let item of formats" class="col-md-4 col-lg-4">
+            <mat-card class="example-card">
+
+                <mat-card-content>
+                    <div class="container">
+                        <mat-card-title>
+                            <mat-card-subtitle>
+                                {{item}}
+                            </mat-card-subtitle>
+                        </mat-card-title>
+                        <div class="total-runs">
+                            <div>Matches</div>
+                            <div>{{bowlingStats[item][0].matches }}</div>
+                        </div>
+                        <div class="total-runs">
+                            <div>Overs</div>
+                            <div>{{bowlingStats[item][0].overs }}</div>
+                        </div>
+                        <div class="total-runs">
+                            <div>Average</div>
+                            <div>{{bowlingStats[item][0].average }}</div>
+                        </div>
+                        <div class="total-runs">
+                            <div>Economy</div>
+                            <div>{{bowlingStats[item][0].economyRate }}</div>
+                        </div>
+                        <div class="total-runs">
+                            <div>FiveWicketHauls</div>
+                            <div>{{bowlingStats[item][0].fiveWicketHauls ? bowlingStats[item][0].fiveWicketHauls :0 }}
+                            </div>
+                        </div>
+                        <div class="total-runs">
+                            <div>wickets</div>
+                            <div>{{bowlingStats[item][0].wickets }}</div>
+                        </div>
+                        <div class="total-runs">
+                            <div>FiveTenWicketHauls</div>
+                            <div>{{bowlingStats[item][0].fivetenWicketHauls ?bowlingStats[item][0].fivetenWicketHauls:0
+                                }}</div>
+                        </div>
+                    </div>
+
+                </mat-card-content>
+
+                <mat-card-footer>
+
+                </mat-card-footer>
+            </mat-card>
+        </div>
+
+    </div>
+</div>

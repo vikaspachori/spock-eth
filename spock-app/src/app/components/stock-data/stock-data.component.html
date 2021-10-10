@@ -27,10 +27,10 @@
       </tr>
     </table>
   </div>
-  <div id="buy" class="buy-sell">
+  <div class="buy-sell">
     <div class="btn-container">
-      <div class="buy">BUY</div>
-      <div id="sell" class="sell blb" (click)="sellStock()">SELL</div>
+      <div id="buy" class="buy" (click)="buySegmentClick()">BUY</div>
+      <div id="sell" class="sell blb" (click)="sellSegmentClick()">SELL</div>
     </div>
     <div class="buy-options">
       <div>
@@ -70,8 +70,11 @@
             </tr>
           </table>
         </div>
-        <div class="footer-container">
+        <div class="footer-container" *ngIf="isBuySelected">
           <button class="btn" (click)="buyClick()">Buy Shares</button>
+        </div>
+        <div class="footer-container" *ngIf="!isBuySelected">
+          <button class="btn" (click)="sellClick()">Sell Shares</button>
         </div>
         <div class="p-3" style="text-align: center; color: grey; cursor: pointer">
           Treding Options
