@@ -55,6 +55,7 @@ export class PortfolioComponent implements OnInit {
 
     var apiData = await this.contractSerice.getUserStock();
     console.log(apiData);
+    var init = false;
     apiData.forEach(element => {
       let a = {} as Player;
       a.a = element[0];
@@ -75,11 +76,19 @@ export class PortfolioComponent implements OnInit {
 
       this.dataSource = new MatTableDataSource(this.temp);
       this.dataSource.paginator = this.paginator;
+       if(!init){
+        setTimeout(() => {
+          this.chartDom = document.getElementById('prtstats');
+          this.myChart = echarts.init(this.chartDom);
+          this.myChart.setOption(options);
+          init = true;
+        }, 1000);
+       }
     });
 
 
-    this.chartDom = document.getElementById('prtstats');
-    this.myChart = echarts.init(this.chartDom);
+   
+
 
     var colorPalette = ['#F66D44', '#E6F69D', '#FEAE65', '#AADEA7', '#2D87BB', '#64C2A6'];
 
@@ -106,7 +115,7 @@ export class PortfolioComponent implements OnInit {
 
 
 
-    this.myChart.setOption(options);
+
 
 
   }
